@@ -22,9 +22,10 @@ sudo dnf install -y gperftools-devel
 ## Install Snort3
 cd ~/sources && git clone https://github.com/snort3/snort3.git
 cd ~/sources/snort3 && export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH && export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH && export CFLAGS="-O3" && export CXXFLAGS="-O3 -fno-rtti" && ./configure_cmake.sh --prefix=/usr/local/snort --enable-tcmalloc && cd ~/sources/snort3/build && sudo make -j$(nproc) && sudo make -j$(nproc) install
-/usr/local/snort/bin/snort -V
 
 ## Install Snort3 Extra
 cd ~/sources && git clone https://github.com/snort3/snort3_extra.git
 cd ~/sources/snort3_extra && export PKG_CONFIG_PATH=/usr/local/snort/lib64/pkgconfig:$PKG_CONFIG_PATH && ./configure_cmake.sh --prefix=/usr/local/snort/extra && cd ~/sources/snort3_extra/build && sudo make -j$(nproc) && sudo make -j$(nproc) install
 
+## Check Snort3 version
+/usr/local/snort/bin/snort -V
